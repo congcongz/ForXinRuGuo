@@ -1,0 +1,285 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0027)http://itzoo.info/love.html -->
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Love</title>
+        
+        <link type="text/css" rel="stylesheet" href="./Love_files/default.css">
+        <script type="text/javascript" src="./Love_files/jquery.min.js"></script>
+        <script type="text/javascript" src="./Love_files/jscex.min.js"></script>
+        <script type="text/javascript" src="./Love_files/jscex-parser.js"></script>
+        <script type="text/javascript" src="./Love_files/jscex-jit.js"></script>
+        <script type="text/javascript" src="./Love_files/jscex-builderbase.min.js"></script>
+        <script type="text/javascript" src="./Love_files/jscex-async.min.js"></script>
+        <script type="text/javascript" src="./Love_files/jscex-async-powerpack.min.js"></script>
+        <script type="text/javascript" src="./Love_files/functions.js" charset="utf-8"></script>
+        <script type="text/javascript" src="./Love_files/love.js" charset="utf-8"></script>
+
+    </head>
+    <body>
+        <audio id="loveMusic" controls autoplay loop style="position: fixed; bottom: 20px; right: 20px; z-index: 9999;">
+            <!-- 本地音频文件（需将hongdou.mp3放入Love_files目录） -->
+            <source src="Love_files/hongdou.mp3" type="audio/mpeg">
+            <!-- 备用外链（如果本地文件不方便，可替换为有效外链） -->
+            <!-- <source src="https://example.com/hongdou.mp3" type="audio/mpeg"> -->
+            您的浏览器不支持音频播放
+        </audio>
+        <div id="main">
+            <div id="error">亲，您使用的浏览器无法支持即将显示的内容，请换成谷歌(<a href="http://www.google.cn/chrome/intl/zh-CN/landing_chrome.html?hl=zh-CN&brand=CHMI">Chrome</a>)或者火狐(<a href="http://firefox.com.cn/download/">Firefox</a>)浏览器哟~</div>
+            <div id="wrap">
+               <div id="text">
+                    <div id="code">                 
+                    <span class="say">心如，见信悦</span><br>
+                    <span class="say">请原谅我大大的笨拙</span><br>
+                        <span class="say">才让你现在看到这早已属于你的独一无二的礼物</span><br>
+                    <span class="say">小雏菊的花语是我初见你时候的第一印象</span><br>
+                        <span class="say">纯洁、天真、希望。当然，还有这纯粹的情感</span><br>
+                    <span class="say">在这段时间的相处里，每次跟你在一起</span><br>
+                     <span class="say">我都会感觉到无比的亲切与心里的安宁</span><br>
+                    <span class="say">发自心底的信任与踏实</span><br>
+                    <span class="say">让我感觉到原来我也是可以有爱的能力</span><br>
+                    <span class="say">这也让我也好期待每次再见到你的时候</span><br>
+                    <span class="say">可能是你笑起来的眼睛就像天上的星星</span><br>
+                    <span class="say">闪烁着温柔，让我驻足</span><br>
+                    <br>
+                    <span class="say">接下来是我最想表达的</span><br>
+                     <span class="say">在与你相处的时候</span><br>
+                      <span class="say">我希望你是自由的，不被束缚的</span><br>
+                       <span class="say">是实现自己全面发展的</span><br>
+                        <span class="say">而我是坚定不移地去支持你，理解你，包容你的</span><br>
+                         <span class="say">放心，我也会相伴你一步步地迈前</span><br>
+                        <span class="say">你要相信，你一直都是值得被爱的姑娘</span><br>
+                   <br>
+                    <span class="say"><span class="space"></span> -- Yours, 淙淙.</span>
+                    </div>
+                </div>
+                <div id="clock-box">
+                    <a href="你的个人链接" target="_blank">张淙</a> 与 <a href="你的个人链接" target="_blank">郭心如</a> 在一起的
+                        <div id="clock"></div>
+                </div>
+                <canvas id="canvas" width="1100" height="680"></canvas>
+            </div>
+
+
+        </div>
+        <!-- 假设原有树叶元素是这样的，添加class="leaf-item" -->
+        <div class="leaf leaf-item" style="left: 20%; top: 30%;"></div>
+        <div class="leaf leaf-item" style="left: 40%; top: 20%;"></div>
+        <div class="leaf leaf-item" style="left: 60%; top: 40%;"></div>
+    <script>
+    </script>
+
+    <script>
+    (function(){
+        var canvas = $('#canvas');
+
+        if (!canvas[0].getContext) {
+            $("#error").show();
+            return false;
+        }
+
+        var width = canvas.width();
+        var height = canvas.height();
+        
+        canvas.attr("width", width);
+        canvas.attr("height", height);
+
+        var opts = {
+            seed: {
+                x: width / 2 - 20,
+                color: "rgb(190, 26, 37)",
+                scale: 2
+            },
+            branch: [
+                [535, 680, 570, 250, 500, 200, 30, 100, [
+                    [540, 500, 455, 417, 340, 400, 13, 100, [
+                        [450, 435, 434, 430, 394, 395, 2, 40]
+                    ]],
+                    [550, 445, 600, 356, 680, 345, 12, 100, [
+                        [578, 400, 648, 409, 661, 426, 3, 80]
+                    ]],
+                    [539, 281, 537, 248, 534, 217, 3, 40],
+                    [546, 397, 413, 247, 328, 244, 9, 80, [
+                        [427, 286, 383, 253, 371, 205, 2, 40],
+                        [498, 345, 435, 315, 395, 330, 4, 60]
+                    ]],
+                    [546, 357, 608, 252, 678, 221, 6, 100, [
+                        [590, 293, 646, 277, 648, 271, 2, 80]
+                    ]]
+                ]] 
+            ],
+            bloom: {
+                num: 700,
+                width: 1080,
+                height: 650,
+            },
+            footer: {
+                width: 1200,
+                height: 5,
+                speed: 10,
+            }
+        }
+
+        var tree = new Tree(canvas[0], width, height, opts);
+        var seed = tree.seed;
+        var foot = tree.footer;
+        var hold = 1;
+
+        canvas.click(function(e) {
+            var offset = canvas.offset(), x, y;
+            x = e.pageX - offset.left;
+            y = e.pageY - offset.top;
+            if (seed.hover(x, y)) {
+                hold = 0; 
+                canvas.unbind("click");
+                canvas.unbind("mousemove");
+                canvas.removeClass('hand');
+            }
+        }).mousemove(function(e){
+            var offset = canvas.offset(), x, y;
+            x = e.pageX - offset.left;
+            y = e.pageY - offset.top;
+            canvas.toggleClass('hand', seed.hover(x, y));
+        });
+
+        var seedAnimate = eval(Jscex.compile("async", function () {
+            seed.draw();
+            while (hold) {
+                $await(Jscex.Async.sleep(10));
+            }
+            while (seed.canScale()) {
+                seed.scale(0.95);
+                $await(Jscex.Async.sleep(10));
+            }
+            while (seed.canMove()) {
+                seed.move(0, 2);
+                foot.draw();
+                $await(Jscex.Async.sleep(10));
+            }
+        }));
+
+        var growAnimate = eval(Jscex.compile("async", function () {
+            do {
+                tree.grow();
+                $await(Jscex.Async.sleep(10));
+            } while (tree.canGrow());
+        }));
+
+        var flowAnimate = eval(Jscex.compile("async", function () {
+            do {
+                tree.flower(2);
+                $await(Jscex.Async.sleep(10));
+            } while (tree.canFlower());
+        }));
+
+        var moveAnimate = eval(Jscex.compile("async", function () {
+            tree.snapshot("p1", 240, 0, 610, 680);
+            while (tree.move("p1", 500, 0)) {
+                foot.draw();
+                $await(Jscex.Async.sleep(10));
+            }
+            foot.draw();
+            tree.snapshot("p2", 500, 0, 610, 680);
+
+            // 会有闪烁不得意这样做, (＞﹏＜)
+            canvas.parent().css("background", "url(" + tree.toDataURL('image/png') + ")");
+            canvas.css("background", "#ffe");
+            $await(Jscex.Async.sleep(300));
+            canvas.css("background", "none");
+        }));
+
+        var jumpAnimate = eval(Jscex.compile("async", function () {
+            var ctx = tree.ctx;
+            while (true) {
+                tree.ctx.clearRect(0, 0, width, height);
+                tree.jump();
+                foot.draw();
+                $await(Jscex.Async.sleep(25));
+            }
+        }));
+
+        var textAnimate = eval(Jscex.compile("async", function () {
+            var together = new Date();
+            together.setFullYear(2026, 1, 15);
+            together.setHours(17);
+            together.setMinutes(17);
+            together.setSeconds(17);
+            together.setMilliseconds(17);
+
+            $("#code").show().typewriter();
+            $("#clock-box").fadeIn(500);
+            while (true) {
+                timeElapse(together);
+                $await(Jscex.Async.sleep(1000));
+            }
+        }));
+
+        var runAsync = eval(Jscex.compile("async", function () {
+            $await(seedAnimate());
+            $await(growAnimate());
+            $await(flowAnimate());
+            $await(moveAnimate());
+
+            textAnimate().start();
+
+            $await(jumpAnimate());
+        }));
+
+        runAsync().start();
+    })();
+
+    // 监听页面点击事件，触发音乐播放
+    document.addEventListener('click', function() {
+        const music = document.getElementById('loveMusic');
+        if (music.paused) {
+            music.play().catch(err => console.log('播放失败：', err));
+        }
+    }, { once: true }); // 只触发一次
+
+    // 打开照片弹窗
+    function openPhotoModal() {
+        document.getElementById("photoModal").style.display = "block";
+        // 禁止背景滚动
+        document.body.style.overflow = "hidden";
+    }
+
+    // 关闭照片弹窗
+    function closePhotoModal() {
+        document.getElementById("photoModal").style.display = "none";
+        // 恢复背景滚动
+        document.body.style.overflow = "auto";
+    }
+
+    // 给指定树叶添加点击事件（假设树叶元素class为leaf-item，可根据实际DOM调整）
+    window.onload = function() {
+        // 选择第3、5、8片树叶（示例，可根据实际需求修改下标）
+        const targetLeaves = [2, 4, 7];
+        const allLeaves = document.getElementsByClassName("leaf-item");
+
+        targetLeaves.forEach(index => {
+            if (allLeaves[index]) {
+                allLeaves[index].style.cursor = "pointer"; // 鼠标悬浮变手型
+                allLeaves[index].onclick = openPhotoModal; // 点击打开弹窗
+                // 可选：添加点击提示样式
+                allLeaves[index].addEventListener("mouseover", function() {
+                    this.style.opacity = "0.8";
+                });
+                allLeaves[index].addEventListener("mouseout", function() {
+                    this.style.opacity = "1";
+                });
+            }
+        });
+    };
+
+    </script>
+
+        <!-- 新增照片弹窗 -->
+        <div id="photoModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 9999;">
+            <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 80%; max-width: 800px; height: 80%; background: white; border-radius: 8px; overflow: hidden;">
+                <!-- 嵌入照片弹窗页面 -->
+                <iframe src="photo-modal.html" style="width: 100%; height: 100%; border: none;"></iframe>
+                <!-- 关闭按钮（备用） -->
+                <button onclick="closePhotoModal()" style="position: absolute; top: 10px; right: 10px; width: 30px; height: 30px; background: #ff6b6b; color: white; border: none; border-radius: 50%; cursor: pointer; font-size: 18px;">×</button>
+            </div>
+        </div>
+
+</body></html>
